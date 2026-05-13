@@ -1,0 +1,227 @@
+
+/*el * es selector universal o todo*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #0F2027,
+        #203A43,
+        #2C5364
+    );
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+/* HEADER */
+
+.header{
+
+    width: 100%;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* CONTENEDOR CENTRAL */
+
+.contenedor-login{
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* TARJETA */
+
+.tarjeta-login{
+
+    width: 100%;
+
+    max-width: 380px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+
+    color: white;
+}
+
+/* TITULO */
+
+.subtitulo{
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+/* LABELS */
+
+#formulario-login label{
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    color: #EAEAEA;
+}
+
+/* INPUTS */
+
+#formulario-login input{
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-size: 14px;
+}
+
+/* PLACEHOLDER */
+
+#formulario-login input::placeholder{
+
+    color: rgba(255,255,255,0.7);
+}
+
+/* FOCUS */
+
+#formulario-login input:focus{
+
+    border: 1px solid #00E676;
+
+    box-shadow: 0 0 10px rgba(0,230,118,0.4);
+}
+
+/* BOTON */
+
+#formulario-login button{
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #00E676;
+
+    color: #0F2027;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* HOVER */
+
+#formulario-login button:hover{
+
+    background: #00c853;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 15px rgba(0,230,118,0.4);
+}
+
+/* RESPONSIVE TELEFONOS */
+
+@media(max-width: 480px){
+
+    .header{
+
+        font-size: 1.2rem;
+
+        padding: 15px;
+    }
+
+    .tarjeta-login{
+
+        padding: 25px;
+    }
+
+    .subtitulo{
+
+        font-size: 1.6rem;
+    }
+
+    #formulario-login input{
+
+        padding: 11px;
+    }
+
+    #formulario-login button{
+
+        padding: 11px;
+    }
+}
