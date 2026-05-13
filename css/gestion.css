@@ -1,0 +1,356 @@
+
+
+/* --- ESTILOS PRINCIPALES de acuerdo a los estilos del login principal --- */
+:root {
+    --fondo-principal: #1a3c44;   
+    --fondo-tarjetas: #3d5a63;     
+    --verde-neon: #00ff87;        
+    --texto-blanco: #ffffff;
+    --texto-gris: #cbd5e0;
+    --input-fondo: #5d757d;      
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background-color: var(--fondo-principal);
+    color: var(--texto-blanco);
+}
+
+.contenedor-app {
+    display: flex;
+    min-height: 100vh;
+}
+.cabecera-modulo h1{
+    font-size: 2rem;
+    margin-bottom: 20px;    
+}
+.cabecera-modulo p{
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.panel-formulario h3{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* MENÚ LATERAL */
+.menu-lateral {
+    width: 260px;
+    background-color: rgba(0, 0, 0, 0.2); /* Sutil para no chocar */
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo h2 {
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.navegacion ul { list-style: none; }
+.navegacion li { margin-bottom: 10px; }
+
+.usuario-info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    gap: 20px;
+}
+
+.btn-perfil{
+    background-color: transparent;
+    border: 1px solid var(--texto-gris);
+    color: var(--texto-gris);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.btn-perfil:hover {
+    background-color: var(--verde-neon);
+    color: #1a3c44; /* Texto oscuro sobre el verde para que sea bien */
+    font-weight: bold;
+}
+.btn-salir {
+    background-color: transparent;
+    border: 1px solid var(--texto-gris);
+    color: var(--texto-gris);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.btn-salir:hover {
+    background-color: var(--verde-neon);
+    color: #1a3c44; /* Texto oscuro sobre el verde para que sea bien */
+    font-weight: bold;
+}
+.btn-mini{
+    background-color: transparent;
+    border: 1px solid var(--texto-gris);
+    color: var(--texto-gris);
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    margin-top: 10px;
+    
+}
+.btn-mini:hover {
+    background-color: var(--verde-neon  );
+    color: #1a3c44; /* Texto oscuro sobre el verde para que sea bien */
+    font-weight: bold;  
+}
+
+.enlace-nav {
+    color: var(--texto-gris);
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.enlace-nav:hover, .enlace-nav.activo {
+    background-color: var(--verde-neon);
+    color: #1a3c44; /* Texto oscuro sobre el verde para que se lea bien */
+    font-weight: bold;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido-principal {
+    flex-grow: 1;
+    padding: 50px;
+}
+
+/* TABLA  */
+.tabla-parqueo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--fondo-tarjetas);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla-parqueo th {
+    background-color: rgba(0,0,0,0.3);
+    padding: 15px;
+    text-align: left;
+    color: var(--verde-neon);
+}
+
+.tabla-parqueo td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ESTILO DE FORMULARIO */
+.tarjeta-formulario {
+    background-color: var(--fondo-tarjetas);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    margin-bottom: 8px;
+    color: var(--texto-gris);
+}
+
+.campo input, .campo select {
+    background-color: var(--input-fondo);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+}
+
+.btn-finalizar {
+    background-color: var(--verde-neon);
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+/* --- Modo responsive --- */
+
+/* Tablets y Laptops pequeñas (Menos de 992px) */
+@media (max-width: 992px) {
+    .contenedor-app {
+        flex-direction: column; /* El menú se pone arriba y el contenido abajo */
+    }
+
+    .menu-lateral {
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo h2 {
+        margin-bottom: 20px;
+    }
+
+    .navegacion ul {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap; /* Para que los botones bajen si no caben */
+    }
+
+    .contenido-principal {
+        padding: 20px;
+    }
+}
+
+/* Móviles (Menos de 600px) */
+@media (max-width: 600px) {
+    .tarjeta-formulario {
+        padding: 20px;
+        width: 100%;
+    }
+
+    /* Transformación de Tabla a modo "Card" */
+    /* Esto evita que el usuario tenga que hacer scroll horizontal infinito */
+    .tabla-parqueo, .tabla-parqueo thead, .tabla-parqueo tbody, .tabla-parqueo th, .tabla-parqueo td, .tabla-parqueo tr {
+        display: block;
+    }
+
+    .tabla-parqueo thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .tabla-parqueo tr {
+        margin-bottom: 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 10px;
+    }
+
+    .tabla-parqueo td {
+        border: none;
+        position: relative;
+        padding-left: 50%; /* Espacio para el "título" de la columna */
+        text-align: right;
+    }
+
+    .tabla-parqueo td:before {
+        content: attr(data-label); /* Usa un atributo data-label de HTML */
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--verde-neon);
+    }
+     
+}
+/* por la noche dia 2 de proyecto
+/* --- MEJORAS PARA LA TABLA Y ESTADOS --- */
+
+/* Contenedor del resumen (Ocupación actual) */
+#resumen-rapido {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    border-left: 4px solid var(--verde-neon);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#contador-vehiculos {
+    font-size: 1.2rem;
+    color: var(--texto-blanco);
+    text-shadow: 0 0 5px var(--verde-neon);
+}
+
+/* Etiquetas de estado (En sitio / Finalizado) */
+.etiqueta-estado {
+    background-color: rgba(0, 255, 135, 0.1);
+    color: var(--verde-neon);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid var(--verde-neon);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Alineación de botones en tablas */
+.tabla-parqueo td:last-child {
+    text-align: center;
+}
+
+/* Efecto de foco en inputs para que combinen con el Neón */
+.campo input:focus, .campo select:focus {
+    outline: 2px solid var(--verde-neon);
+    background-color: #4a636b;
+}
+
+/* Estilos para el Modal de Perfil (Overlay) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* Estilo para las filas cuando no hay datos */
+.mensaje-vacio {
+    text-align: center;
+    color: var(--texto-gris);
+    padding: 40px !important;
+    font-style: italic;
+}
+
+/* --- AJUSTES DE FILAS EN EL FORMULARIO --- */
+.fila {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.fila .campo {
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    .fila {
+        flex-direction: column;
+        gap: 0;
+    }
+}
