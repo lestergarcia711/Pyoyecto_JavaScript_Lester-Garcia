@@ -12,8 +12,6 @@ checkboxMostrar.addEventListener("change", function() {
 });
 
 
-
-
 const usuarioRegistrado = {
     username: "Admin",
     Email: "admincampusparking@gmail.com",
