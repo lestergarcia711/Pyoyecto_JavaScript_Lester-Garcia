@@ -1,6 +1,6 @@
 
 const inputclave= document.getElementById("login-clave");
-const checkboxMostrar= document.getElementById("mostrar-clave");
+const checkboxMostrar= document.getElementById("mostrar");
 
 checkboxMostrar.addEventListener("change", function() {
     if(this.checked){
