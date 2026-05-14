@@ -90,6 +90,17 @@ body{
 
     color: white;
 }
+/* ALERTA DE ERROR */
+#alerta-login{
+
+    margin-top: 15px;
+
+    color: #FF5252;
+
+    font-size: 14px;
+
+    text-align: center;
+}
 
 /* TITULO */
 
@@ -192,6 +203,14 @@ body{
     transform: translateY(-2px);
 
     box-shadow: 0 4px 15px rgba(0,230,118,0.4);
+}
+.mostrar-password{
+    gap: 8px;
+
+    display: flex;
+
+    align-items: center;
+    padding-top: 10px;
 }
 
 /* RESPONSIVE TELEFONOS */

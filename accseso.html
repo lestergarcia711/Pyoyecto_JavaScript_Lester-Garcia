@@ -20,19 +20,30 @@
             <form id="formulario-login">
 
                 <label for="login-usuario">Nombre de usuario</label>
-                <input type="text" id="login-usuario" placeholder="Ingresa nombre del usuario">
+                <input type="text" id="login-usuario" placeholder="Ingresa nombre del usuario" required>
     
                 <label for="login-email">Correo electrónico</label>
-                <input type="email" id="login-email" placeholder="Email">
+                <input type="email" id="login-email" placeholder="Email" required>
+
     
                 
                 <label for="login-clave">Contraseña</label>
-                <input type="password" id="login-clave" placeholder="########">
+                <input type="password" id="login-clave" placeholder="" required>
+
+                <div class="mostar-password">
+                 <input type="checkbox" id="mostrar">
+                 <label for="mostrar">Mostrar contraseña</label>
+                
+                </div>
+         
+
+               
     
-                <button type="button" id="btn-entrar">Iniciar Sesión</button>
+                <button type="submit" id="btn-entrar">Iniciar Sesión</button>
+                <div id="alerta-login"></div>
             </form>
         </div>
     </main>
-    
+    <script src="js/acceso.js"></script>
 </body>
 </html>
