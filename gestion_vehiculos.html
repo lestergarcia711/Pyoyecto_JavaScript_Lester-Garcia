@@ -16,16 +16,19 @@
         </div>
         <nav class="navegacion">
             <ul>
-                <li><a href="#" class="enlace-nav activo" onclick="mostrarSeccion('seccion-catalogo')">Tipos de Vehículo</a></li>
-                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion('seccion-registro')">Registrar vehiculo</a></li>
-                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion('seccion-listado')">Vehículos en Parqueo</a></li>
+
+                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-registro')">Registrar vehiculo</a></li>
+                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-listado')">Vehículos en Parqueo</a></li>
             </ul>
         </nav>
 
         <div class="usuario-info">
+            <!-- Línea nueva para mostrar el nombre del usuario -->
+            <p class="parrafo-info">
+                Usuario: <span id="nombre-usuario-display">Admin</span>
+            </p>
+            
             <a href="javascript:void(0)" class="btn-perfil" onclick="abrirPerfil()">👤 Perfil</a>
-
-            <!--desde aqui de una vez se lla a la funcion de cerrar secion-->
             <a href="accseso.html" class="btn-salir" onclick="cerrarSesion()">⎋ Cerrar Sesión</a>
         </div>
     </aside>
@@ -33,59 +36,26 @@
         <!-- AREA DE CONTENIDO -->
         <main class="contenido-principal">
 
-            <!-- SECCIÓN 1: CONFIGURACIÓN DE TARIFAS -->
-            <section id="seccion-catalogo" class="modulo-contenido">
-                <div class="cabecera-modulo">
-                    <h1>Configuración de Tarifas</h1>
-                    <p>Define los tipos de vehículos y sus cobros por hora.</p>
-                </div>
-            
-                <div class="contenedor-gestion">
-                    <div class="panel-formulario">
-                        <h3>Registrar / Editar Tipo</h3>
-                        <form id="form-tipo-vehiculo">
-                            <div class="campo">
-                                <label>Código del Vehículo</label>
-                                <input type="text" id="codigo-vehiculo" placeholder="Ej: V-01">
-                            </div>
-                            <div class="campo">
-                                <label>Nombre del Tipo</label>
-                                <input type="text" id="nombre-vehiculo" placeholder="Ej: Camioneta">
-                            </div>
-
-                            <div class="campo">
-                                <label>Tarifa por Hora (Q)</label>
-                                <input type="number" id="tarifa-vehiculo" placeholder="0.00">
-                            </div>
-
-                            <div class="botones-formulario">
-                                <!-- Evento para guardar el tipo -->
-                                <button type="button" class="btn-finalizar" onclick="guardarNuevoTipo()">Guardar Tipo</button>
-                                <button type="reset" class="btn-mini">Limpiar</button>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECCIÓN 2: REGISTRO DE INGRESO -->
+          <!-- SECCIÓN 2: REGISTRO DE INGRESO -->
             <section id="seccion-registro" class="modulo-contenido" style="display: none;">
                 <div class="cabecera-modulo">
-                    <h1>Ingreso de Vehículo</h1>
-                    <p>Registra la entrada de un nuevo cliente.</p>
+                    <!-- El título cambiará dinámicamente con JS -->
+                    <h1 id="titulo-formulario">Ingreso de Vehículo</h1>
+                    <p>Registra la entrada de un nuevo cliente o edita un registro existente.</p>
                 </div>
                 <div class="tarjeta-formulario">
                     <form id="formulario-ingreso" class="formulario-parqueo">
+                        <!-- CAMPO OCULTO CLAVE: Para saber si estamos editando o creando uno nuevo -->
+                        <input type="hidden" id="reg-id-edicion" value="">
+                    
                         <div class="fila">
+                            <div class="campo">
+                                <label>Tipo de Vehículo</label>
+                                <select id="reg-tipo"></select>
+                            </div>
                             <div class="campo">
                                 <label>Número de Placa</label>
                                 <input type="text" id="reg-placa" placeholder="P-000XXX">
-                            </div>
-                            <div class="campo">
-                                <label>Tipo de Vehículo</label>
-                                <!-- Se llena dinámicamente con JS -->
-                                <select id="reg-tipo"></select>
                             </div>
                         </div>
                         <div class="fila">
@@ -102,8 +72,12 @@
                             <label>Espacio de Parqueo</label>
                             <input type="number" id="reg-espacio" placeholder="Ej. 42">
                         </div>
-                        <!-- Evento para registrar el vehículo -->
-                        <button type="button" class="btn-finalizar" onclick="registrarIngreso()">Guardar Registro</button>
+
+                        <!-- CONTENEDOR DE BOTONES DINÁMICOS -->
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <button type="button" id="btn-cancelar-edicion" class="btn-cancelar" onclick="cancelarEdicion()" style="display: none; flex: 1; background: #e74c3c; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Cancelar Edición</button>
+                            <button type="button" id="btn-guardar-registro" class="btn-finalizar" onclick="registrarIngreso()" style="flex: 2;">Guardar Registro</button>
+                        </div>
                     </form>
                 </div>
             </section>
@@ -143,7 +117,7 @@
        <div id="modalPerfil" class="modal-overlay" style="display: none;">
         <div class="modal-contenido tarjeta-formulario">
             <div class="modal-header">
-                <h2 style="color: var(--verde-neon); margin-bottom: 5px;">Mi Perfil</h2>
+                <h2 style="color: var(--verde-neon); margin-bottom: 5px;"> Mi Perfil</h2>
                 <button onclick="cerrarPerfil()" style="float:right; background:none; border:none; color:white; cursor:pointer;">✕</button>
             </div>
             <form id="formPerfil">
