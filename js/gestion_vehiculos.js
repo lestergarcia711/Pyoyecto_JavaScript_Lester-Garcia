@@ -70,7 +70,7 @@ document.getElementById('formPerfil').addEventListener('submit', function(e) {
 });
 
 function cerrarSesion() {
-    window.location.href = "accseso.html";
+    window.location.href = "index.html";
 }
 
 // --- NAVEGACIÓN CORREGIDA ---
