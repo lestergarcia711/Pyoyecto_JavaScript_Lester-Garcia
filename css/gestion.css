@@ -4,13 +4,14 @@
    1. VARIABLES Y ESTILOS PRINCIPALES (Base del proyecto)
    ========================================================================== */
 :root {
-    --fondo-principal: #1a3c44;   
-    --fondo-tarjetas: #3d5a63;     
+    --fondo-principal: #1a3c44;  
+    --fondo-tarjetas: #3d5a63;    
     --verde-neon: #00ff87;        
     --texto-blanco: #ffffff;
     --texto-gris: #cbd5e0;
     --input-fondo: #5d757d;      
 }
+
 
 * {
     margin: 0;
@@ -19,20 +20,24 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+
 body {
     background-color: var(--fondo-principal);
     color: var(--texto-blanco);
 }
+
 
 .contenedor-app {
     display: flex;
     min-height: 100vh;
 }
 
+
 .cabecera-modulo h1 {
     font-size: 2rem;
     margin-bottom: 20px;    
 }
+
 
 .cabecera-modulo p {
     color: var(--texto-gris);
@@ -40,22 +45,26 @@ body {
     margin-bottom: 30px;
 }
 
+
 .panel-formulario h3 {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
+
 /* ==========================================================================
    2. COMPONENTES Y DISEÑO GENERAL (Modo Escritorio por defecto)
    ========================================================================== */
 
+
 /* Menú Lateral */
 .menu-lateral {
     width: 260px;
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
     padding: 30px 20px;
     border-right: 1px solid rgba(255,255,255,0.1);
 }
+
 
 .logo h2 {
     font-size: 1.6rem;
@@ -63,8 +72,10 @@ body {
     text-align: center;
 }
 
+
 .navegacion ul { list-style: none; }
 .navegacion li { margin-bottom: 10px; }
+
 
 .enlace-nav {
     color: var(--texto-gris);
@@ -75,11 +86,13 @@ body {
     transition: 0.3s;
 }
 
+
 .enlace-nav:hover, .enlace-nav.activo {
     background-color: var(--verde-neon);
-    color: #1a3c44; 
+    color: #1a3c44;
     font-weight: bold;
 }
+
 
 /* Información del Usuario y Botones */
 .usuario-info {
@@ -93,6 +106,7 @@ body {
     gap: 20px;
 }
 
+
 .btn-perfil, .btn-salir, .btn-mini {
     background-color: transparent;
     border: 1px solid var(--texto-gris);
@@ -104,22 +118,26 @@ body {
     text-decoration: none;
 }
 
+
 .btn-mini {
     padding: 5px 10px;
     margin-top: 10px;
 }
 
+
 .btn-perfil:hover, .btn-salir:hover, .btn-mini:hover {
     background-color: var(--verde-neon);
-    color: #1a3c44; 
+    color: #1a3c44;
     font-weight: bold;
 }
+
 
 /* Contenido Principal */
 .contenido-principal {
     flex-grow: 1;
     padding: 50px;
 }
+
 
 /* Resumen Rápido de Vehículos */
 #resumen-rapido {
@@ -132,11 +150,13 @@ body {
     margin-bottom: 20px;
 }
 
+
 #contador-vehiculos {
     font-size: 1.2rem;
     color: var(--texto-blanco);
     text-shadow: 0 0 5px var(--verde-neon);
 }
+
 
 /* Formulario */
 .tarjeta-formulario {
@@ -147,15 +167,18 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
+
 .fila {
     display: flex;
     gap: 20px;
     width: 100%;
 }
 
+
 .fila .campo {
     flex: 1;
 }
+
 
 .campo {
     display: flex;
@@ -163,10 +186,12 @@ body {
     margin-bottom: 20px;
 }
 
+
 .campo label {
     margin-bottom: 8px;
     color: var(--texto-gris);
 }
+
 
 .campo input, .campo select {
     background-color: var(--input-fondo);
@@ -176,10 +201,12 @@ body {
     color: white;
 }
 
+
 .campo input:focus, .campo select:focus {
     outline: 2px solid var(--verde-neon);
     background-color: #4a636b;
 }
+
 
 .btn-finalizar {
     background-color: var(--verde-neon);
@@ -192,6 +219,7 @@ body {
     font-size: 1rem;
 }
 
+
 /* Tabla Estilo Escritorio */
 .contenedor-tabla-responsive {
     width: 100%;
@@ -199,6 +227,7 @@ body {
     -webkit-overflow-scrolling: touch;
     margin-top: 15px;
 }
+
 
 .tabla-parqueo {
     width: 100%;
@@ -209,6 +238,7 @@ body {
     overflow: hidden;
 }
 
+
 .tabla-parqueo th {
     background-color: rgba(0,0,0,0.3);
     padding: 15px;
@@ -216,14 +246,17 @@ body {
     color: var(--verde-neon);
 }
 
+
 .tabla-parqueo td {
     padding: 15px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
+
 .tabla-parqueo td:last-child {
     text-align: center;
 }
+
 
 /* Modales y Mensajes */
 .etiqueta-estado {
@@ -236,6 +269,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 
 .modal-overlay {
     position: fixed;
@@ -251,6 +285,7 @@ body {
     backdrop-filter: blur(5px);
 }
 
+
 .mensaje-vacio {
     text-align: center;
     color: var(--texto-gris);
@@ -259,13 +294,16 @@ body {
 }
 
 
+
+
 /* ==========================================================================
    3. SECCIÓN RESPONSIVE PARA TABLETS (Menos de 992px)
    ========================================================================== */
 @media (max-width: 992px) {
     .contenedor-app {
-        flex-direction: column; 
+        flex-direction: column;
     }
+
 
     .menu-lateral {
         width: 100%;
@@ -274,21 +312,26 @@ body {
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
+
     .logo h2 {
         margin-bottom: 20px;
     }
+
 
     .navegacion ul {
         display: flex;
         justify-content: center;
         gap: 10px;
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
     }
+
 
     .contenido-principal {
         padding: 20px;
     }
 }
+
+
 
 
 /* ==========================================================================
@@ -300,15 +343,18 @@ body {
         width: 100%;
     }
 
+
     .fila {
         flex-direction: column;
         gap: 0;
     }
 
+
     /* Transformación completa de la Tabla a modo Tarjetas (Cards) */
     .tabla-parqueo, .tabla-parqueo thead, .tabla-parqueo tbody, .tabla-parqueo th, .tabla-parqueo td, .tabla-parqueo tr {
         display: block;
     }
+
 
     /* Ocultamos cabeceras tradicionales */
     .tabla-parqueo thead tr {
@@ -317,31 +363,34 @@ body {
         left: -9999px;
     }
 
+
     /* Cada fila se convierte en una tarjeta de bordes redondeados */
     .tabla-parqueo tr {
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
         border: 1px solid rgba(255,255,255,0.1);
         border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.15); 
+        background-color: rgba(0, 0, 0, 0.15);
         padding: 8px 0;
     }
+
 
     /* Estilos adaptados para las celdas en móvil */
     .tabla-parqueo td {
         border: none;
         position: relative;
-        padding-left: 50%; 
+        padding-left: 50%;
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: right;
     }
 
+
     /* Inyección de títulos mediante data-label */
     .tabla-parqueo td:before {
-        content: attr(data-label); 
+        content: attr(data-label);
         position: absolute;
         left: 15px;
-        top: 50%;                 
+        top: 50%;                
         transform: translateY(-50%);
         width: 45%;
         text-align: left;
@@ -355,4 +404,75 @@ body {
         padding-left: 15px;
         margin-top: 5px;
     }
+   
 }
+/* --- 1. ESTILOS BASE PARA ESCRITORIO (La tabla normal) --- */
+.tabla-historial-responsive {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white; /* Ajusta según el color de tu texto */
+}
+
+
+.tabla-historial-responsive th {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--verde-neon);
+}
+
+
+.tabla-historial-responsive td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- 2. RESPONSIVE: SOLO PARA MÓVILES --- */
+@media (max-width: 600px) {
+    /* Forzamos el diseño de tarjetas solo en pantallas pequeñas */
+    .tabla-historial-responsive,
+    .tabla-historial-responsive thead,
+    .tabla-historial-responsive tbody,
+    .tabla-historial-responsive th,
+    .tabla-historial-responsive td,
+    .tabla-historial-responsive tr {
+        display: block !important;
+    }
+
+
+    .tabla-historial-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+
+    .tabla-historial-responsive tr {
+        margin-bottom: 20px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 10px;
+    }
+
+
+    .tabla-historial-responsive td {
+        padding-left: 45% !important;
+        text-align: right;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .tabla-historial-responsive td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 30px;
+        font-weight: bold;
+        color: var(--verde-neon);
+        text-align: left;
+    }
+}
+

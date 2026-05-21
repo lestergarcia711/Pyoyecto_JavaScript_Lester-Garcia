@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/gestion.css">
 </head>
 <body>
-    
+   
    <div class="contenedor-app">
     <!--  Barra lateral-->
     <aside class="menu-lateral">
@@ -17,24 +17,31 @@
         <nav class="navegacion">
             <ul>
 
+
                 <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-registro')">Registrar vehiculo</a></li>
                 <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-listado')">Vehículos en Parqueo</a></li>
+                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-historial')">Historial</a></li>
             </ul>
         </nav>
+
 
         <div class="usuario-info">
             <!-- Línea nueva para mostrar el nombre del usuario -->
             <p class="parrafo-info">
                 Usuario: <span id="nombre-usuario-display">Admin</span>
             </p>
-            
+           
             <a href="javascript:void(0)" class="btn-perfil" onclick="abrirPerfil()">👤 Perfil</a>
             <a href="index.html" class="btn-salir" onclick="cerrarSesion()">⎋ Cerrar Sesión</a>
+
+
         </div>
     </aside>
 
+
         <!-- AREA DE CONTENIDO -->
         <main class="contenido-principal">
+
 
           <!-- SECCIÓN 2: REGISTRO DE INGRESO -->
             <section id="seccion-registro" class="modulo-contenido" style="display: none;">
@@ -47,7 +54,7 @@
                     <form id="formulario-ingreso" class="formulario-parqueo">
                         <!-- CAMPO OCULTO CLAVE: Para saber si estamos editando o creando uno nuevo -->
                         <input type="hidden" id="reg-id-edicion" value="">
-                    
+                   
                         <div class="fila">
                             <div class="campo">
                                 <label>Tipo de Vehículo</label>
@@ -73,6 +80,7 @@
                             <input type="number" id="reg-espacio" placeholder="Ej. 42">
                         </div>
 
+
                         <!-- CONTENEDOR DE BOTONES DINÁMICOS -->
                         <div style="display: flex; gap: 10px; margin-top: 15px;">
                             <button type="button" id="btn-cancelar-edicion" class="btn-cancelar" onclick="cancelarEdicion()" style="display: none; flex: 1; background: #e74c3c; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Cancelar Edición</button>
@@ -81,6 +89,7 @@
                     </form>
                 </div>
             </section>
+
 
             <!-- SECCIÓN 3: LISTADO Y COBRO -->
             <section id="seccion-listado" class="modulo-contenido" style="display: none;">
@@ -91,7 +100,7 @@
                         Ocupación actual: <span id="contador-vehiculos">0</span> vehículos.
                     </div>
                 </div>
-                
+               
                 <table class="tabla-parqueo">
                     <thead>
                         <tr>
@@ -110,7 +119,32 @@
                 </table>
             </section>
 
+
+            <!-- seccion de historial -->
+            <section id="seccion-historial" class="modulo-contenido" style="display: none;">
+                <div class="cabecera-modulo">
+                    <h1>Historial de Vehículos</h1>
+                    <p>Vehículos que ya han abandonado el parqueo.</p>
+                </div>
+                <table class="tabla-historial-responsive">
+                    <thead>
+                        <tr>
+                            <th data-label="Placa">Placa</th>
+                            <th data-label="Tipo">Tipo</th>
+                            <th data-label="Fecha de Ingreso">Entrada</th>
+                            <th data-label="Fecha de Salida">Salida</th>
+                            <th data-label="Total Pagado">Pago Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-historial-cuerpo">
+                        <!-- JS llenará esto -->
+                    </tbody>
+                </table>
+            </section>
+
+
         </main>
+
 
    </div>
        <!-- MODAL DE PERFIL (Mantenido igual) -->
@@ -129,8 +163,7 @@
                     <label>Correo Electrónico</label>
                     <input type="email" id="perfil-email" value="admin@parking.com">
                 </div>
-                 <div class="campo">
-                     <div class="campo">
+                <div class="campo">
                     <label>Contraseña</label>
                     <input type="password" id="perfil-password" value="password123" placeholder="Nueva Contraseña">
                 </div>
@@ -148,3 +181,4 @@
 <script src="js/gestion_vehiculos.js"></script>
 </body>
 </html>
+
