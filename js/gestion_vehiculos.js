@@ -10,7 +10,8 @@ const CONFIG = {
     GRACIA_MINUTOS: 10
 };
 let listaHistorial = JSON.parse(localStorage.getItem('historialParqueo')) || [];
-
+ 
+let listaRecaudacion = JSON.parse(localStorage.getItem('recaudacionParqueo')) || [];
 
 let listaTiposVehiculos = JSON.parse(localStorage.getItem('tiposVehiculos')) || [
     { codigo: "V-01", nombre: "Automovil", tarifa: 40 },
@@ -274,7 +275,16 @@ function renderizarHistorial() {
     });
     actualizarResumen();
 }
+renderizarHistorial();
+// función para renderizar la recaudación total, pero hay que actua
 
+function renderizarRecaudacion() {
+    const totalRecaudado = listaHistorial.reduce((total, reg) => total + (reg.totalPagado || 0), 0);
+    const display = document.getElementById('total-recaudado-display');
+    if (display) display.textContent = `Q${totalRecaudado.toFixed(2)}`;
+};
+
+   renderizarRecaudacion(); 
 
 function prepararEdicion(idRegistro) {
     const registro = listaRegistrosParqueo.find(r => r.id === idRegistro);
@@ -375,6 +385,7 @@ function procesarSalida(idRegistro) {
         // 4. Con esto se actualizan las funciones
         renderizarTabla();
         renderizarHistorial();
+        renderizarRecaudacion();
         actualizarResumen();
     }
 }

@@ -21,6 +21,7 @@
                 <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-registro')">Registrar vehiculo</a></li>
                 <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-listado')">Vehículos en Parqueo</a></li>
                 <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-historial')">Historial</a></li>
+                <li><a href="#" class="enlace-nav" onclick="mostrarSeccion(event, 'seccion-recaudar')">Recaudación total</a></li>
             </ul>
         </nav>
 
@@ -140,6 +141,16 @@
                         <!-- JS llenará esto -->
                     </tbody>
                 </table>
+            </section>
+            <!--seccion de racaudación-->
+            <section id="seccion-recaudar" class="modulo-contenido" style="display: none;">
+                <div class="cabecera-modulo">
+                    <h1>Recaudación Total</h1>
+                    <p>Dinero total recaudado por el parqueo.</p>
+                </div>
+                <div class="tarjeta-formulario">
+                    <h2 style="color: var(--verde-neon);">Total Recaudado: <span id="total-recaudado-display">$0.00</span></h2>
+                </div>
             </section>
 
 
