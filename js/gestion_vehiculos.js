@@ -101,6 +101,18 @@ function cerrarPerfil() {
     document.getElementById('modalPerfil').style.display = 'none';
 }
 
+function guardarPerfil(){
+    const nuevoUsuario={
+        username: document.getElementById('perfil-nombre').value,
+        Email: document.getElementById('perfil-email').value,
+        password: document.getElementById('perfil-password').value
+    }
+    localStorage.setItem("usuarioRegistrado", JSON.stringify(nuevoUsuario));
+    alert("Cambios Guardados con éxito")
+
+    document.getElementById('modalPerfil').style.display = 'flex';
+}
+
 
 document.getElementById('formPerfil').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -120,6 +132,7 @@ document.getElementById('formPerfil').addEventListener('submit', function(e) {
     localStorage.setItem("usuarioRegistrado", JSON.stringify(usuarioActualizado));
     cargarDatosUsuario();
     alert("Perfil actualizado correctamente.");
+    guardarPerfil();
     cerrarPerfil();
 });
 
@@ -267,7 +280,7 @@ function renderizarHistorial() {
             <td data-label="Total Pagado">Q${reg.totalPagado}</td>
             <td>
             <div style="display: flex; gap: 5px;">
-                <button onclick="eliminarRegistro(${reg.id})" class="btn-mini" style="background: #e74c3c; color: white; border:none; padding:5px 8px; cursor:pointer; border-radius:3px;">Eliminar</button>
+                <button onclick="eliminarHistorial(${reg.id})" class="btn-mini" style="background: #e74c3c; color: white; border:none; padding:5px 8px; cursor:pointer; border-radius:3px;">Eliminar</button>
             </div>
             </td>
         `;
@@ -275,16 +288,29 @@ function renderizarHistorial() {
     });
     actualizarResumen();
 }
-renderizarHistorial();
-// función para renderizar la recaudación total, pero hay que actua
 
+renderizarHistorial();
+
+// función para renderizar la recaudación total
 function renderizarRecaudacion() {
     const totalRecaudado = listaHistorial.reduce((total, reg) => total + (reg.totalPagado || 0), 0);
     const display = document.getElementById('total-recaudado-display');
     if (display) display.textContent = `Q${totalRecaudado.toFixed(2)}`;
 };
+renderizarRecaudacion();
 
-   renderizarRecaudacion(); 
+  
+   
+function eliminarHistorial(idRegistro) {
+    const registro = listaHistorial.find(r => r.id === idRegistro);
+    if (!registro) return;
+
+    if (confirm(`¿Seguro que deseas ELIMINAR el registro del vehículo ${registro.placa}?`)) {
+        listaHistorial = listaHistorial.filter(r => r.id !== idRegistro);
+        localStorage.setItem('historialParqueo', JSON.stringify(listaHistorial));
+        renderizarHistorial();
+    }
+};
 
 function prepararEdicion(idRegistro) {
     const registro = listaRegistrosParqueo.find(r => r.id === idRegistro);

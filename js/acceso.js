@@ -12,11 +12,15 @@ checkboxMostrar.addEventListener("change", function() {
 });
 
 
-const usuarioRegistrado = {
+const usuarioRegistrado= {
     username: "Admin",
     Email: "admincampusparking@gmail.com",
     password: "admin123"
 };
+if (!localStorage.getItem("usuarioRegistrado")){
+    localStorage.setItem("usuarioRegistrado", JSON.stringify(usuarioRegistrado));
+}
+
 
 localStorage.setItem("usuarioRegistrado", JSON.stringify(usuarioRegistrado));
 
